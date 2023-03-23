@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 
-export const FriendsListWrapper = styled.ul`
-  display: flex;
-  gap: 5px;
-  width: fit-content;
-  margin: 10px auto;
-`;
-export const FreindsListItem = styled.li`
+export const FriendsCard = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;

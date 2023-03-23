@@ -11,7 +11,11 @@ import {
 } from './Profile.styled';
 
 export const Profile = ({
-  user: { username, tag, location, avatar, stats },
+  username,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
 }) => {
   return (
     <ProfileCard>
@@ -24,15 +28,15 @@ export const Profile = ({
       <ProfileStats>
         <StatsItem>
           <b>Followers:</b>
-          <p>{stats.followers}</p>
+          <p>{followers}</p>
         </StatsItem>
         <StatsItem>
           <b>Views:</b>
-          <p>{stats.views}</p>
+          <p>{views}</p>
         </StatsItem>
         <StatsItem>
           <b>Likes:</b>
-          <p>{stats.likes}</p>
+          <p>{likes}</p>
         </StatsItem>
       </ProfileStats>
     </ProfileCard>
@@ -40,11 +44,9 @@ export const Profile = ({
 };
 
 Profile.propTypes = {
-  user: PropTypes.shape({
-    username: PropTypes.string,
-    tag: PropTypes.string,
-    location: PropTypes.string,
-    avatar: PropTypes.string,
-    stats: PropTypes.objectOf(PropTypes.number),
-  }).isRequired,
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  stats: PropTypes.objectOf(PropTypes.number.isRequired).isRequired,
 };

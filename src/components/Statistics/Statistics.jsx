@@ -8,10 +8,10 @@ import {
   ItemLabel,
 } from './Statistics.styled';
 
-export const Statistics = ({ data }) => {
+export const Statistics = ({ data, title }) => {
   return (
     <StatisticsWrapper>
-      <StatisticsTitle>Upload Stats</StatisticsTitle>
+      {title && <StatisticsTitle>{title}</StatisticsTitle>}
       <StatisticsList>
         {data.map(({ id, label, percentage }) => {
           return (
@@ -27,11 +27,12 @@ export const Statistics = ({ data }) => {
 };
 
 Statistics.propTypes = {
+  title: PropTypes.string,
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
-      label: PropTypes.string,
-      percentage: PropTypes.number,
-    })
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired
   ).isRequired,
 };
